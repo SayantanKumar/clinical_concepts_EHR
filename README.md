@@ -40,8 +40,8 @@ The **data_splitter.py** script is used for splitting the data into train-valida
 
 All components of our proposed architecture have been implemented in the **model.py** script, including the recurrent module with time-series module, concept and relevance network. The **train_evaluate.py** script has the complete training module and the evaluation functions for generating model performance (AUROC/AUPRC) and model explanations. 
 
-![alt-text-1](figures/performance_table.png){: style="height:83px"}
-![alt-text-2](figures/SOFA_explanation.png){: style="height:83px"}
+![alt-text-1](figures/performance_table.png)
+![alt-text-2](figures/SOFA_explanation.png)
 
 ## Citation
 If you find our work is useful in your research, please consider raising a star  :star:  and citing:
