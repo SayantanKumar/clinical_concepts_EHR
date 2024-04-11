@@ -7,6 +7,20 @@ Explanations for ICU Mortality Prediction" [Paper](https://dl.acm.org/doi/pdf/10
 
 **Abstract.** The black-box nature of complex deep learning models makes it challenging to explain the rationale behind model predictions to clinicians and healthcare providers. Most of the current explanation methods in healthcare provide expla- nations through feature importance scores, which identify clinical features that are important for prediction. For high-dimensional clinical data, using individual input features as units of explanations often leads to noisy explanations that are sensitive to input perturbations and less informative for clinical interpreta- tion. In this work, we design a novel deep learning framework that predicts domain-knowledge driven intermediate high-level clinical concepts from input features and uses them as units of explanation. Our framework is self-explaining; relevance scores are generated for each concept to predict and explain in an end-to-end joint training scheme. We perform systematic experiments on a real-world electronic health records dataset to evaluate both the performance and explainability of the predicted clinical concepts.
 
+## Domain-knowledge concepts and clinical outcome
+
+**Clinical outcome**: Our aim is to predict the risk(probability) of a patient’s death at each timestep within his/her stay in the ICU. At each timepoint within the patient’s ICU trajectory, the model predicts if the patient will die within the next 24 hours period. For example, if a patient stays within the ICU from t=0 to t=56 hours(death time) then the clinical outcome labels (ground truth) from t=0 to t=32 will be 0 (survival) and 1 (death) from t=32 onwards.
+
+**Domain-knowledge concepts**: Our proposed framework uses [Sequential Organ Failure Assessment (SOFA)](https://en.wikipedia.org/wiki/SOFA_score) organ-failure risk scores as high-level clinical concepts to explain patient mortality in the ICU. The six concepts in our model correspond to the organ-failure risk scores for each of the six organ systems: respiratory, cardiovascular, neurological hepatic, hematologic (coagulation) and renal systems. SOFA organ scores vary between 0-4 with high scores indicating severe organ system conditions. 
+
+The SOFA organ scores satisfy the properties of clinical concepts since they are 
+- **expert-knowledge driven**: well-validated metric used by clinicians to understand ICU mortality
+- **intermediate knowledge**: each organ-failure score is an aggregated assessment of clinical features
+- **high-level**: easier for human cognition since we are moving one level up from feature-level to organ level.
+
+Similar to the final clinical outcome, the predicted explanations are also anticipated longitudinal predictions. At each timestep, the model predicts anticipated organ-failure risk scores (maximum score within the next 24 hour window)
+
+![concept](figures/ICU_temporal.png)
 
 ## Environment
 - We recommend an evironment with python >= 3.7 and pytorch >= 1.10.2, and then install the following dependencies:
