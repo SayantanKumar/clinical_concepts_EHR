@@ -15,6 +15,17 @@ Explanations for ICU Mortality Prediction" [Paper](https://dl.acm.org/doi/pdf/10
 ```
 pip install -r requirements.txt
 ```
+## Running scripts
+
+### Data extraction from MIMIC IV and preprocessing
+The **MIMIC_data_extaction.py** script is used to extract the time-series and the time-invariant features from the MIMIC-IV v0.4 dataset. Instructions for downloading data from the MIMIC IV v0.4 dataset can be found [here](https://physionet.org/content/mimiciv/0.4/). This script also calculates the ground truth labels for concepts (SOFA otrgan-falure-risk scores) and the clinical outcome (ICU mortality). 
+
+### Feature preprocessing
+For each patient, we extracted 87 time-series features which includes laboratory test results and vital signs. Feature pre-processing of time-series variables include clipping the outlier values to the 1st and 99th percentile values and standardization using the RobustScalar package from sklearn. Time-varying variables were aggregated into hourly time buckets using the median for repeated values.
+
+The **data_splitter.py** script is used for splitting the data into train-validation-test (75:15:10), converting dataframes into tensors, 
+
+### Model training and evaluation
 
 ## Citation
 If you find our work is useful in your research, please consider raising a star  :star:  and citing:
