@@ -15,15 +15,28 @@ Explanations for ICU Mortality Prediction" [Paper](https://dl.acm.org/doi/pdf/10
 ```
 pip install -r requirements.txt
 ```
-## Running scripts
 
-### Data extraction from MIMIC IV and preprocessing
-The **MIMIC_data_extaction.py** script is used to extract the time-series and the time-invariant features from the MIMIC-IV v0.4 dataset. Instructions for downloading data from the MIMIC IV v0.4 dataset can be found [here](https://physionet.org/content/mimiciv/0.4/). This script also calculates the ground truth labels for concepts (SOFA otrgan-falure-risk scores) and the clinical outcome (ICU mortality). 
+## Data extraction from MIMIC IV and preprocessing
+The **MIMIC_data_extaction.py** script is used to extract the time-series and the time-invariant features from the MIMIC-IV v0.4 dataset. Instructions for downloading data from the MIMIC IV v0.4 dataset can be found [here](https://physionet.org/content/mimiciv/0.4/).  This script also calculates the ground truth labels for concepts (SOFA otrgan-falure-risk scores) and the clinical outcome (ICU mortality). 
 
-### Feature preprocessing
-For each patient, we extracted 87 time-series features which includes laboratory test results and vital signs. Feature pre-processing of time-series variables include clipping the outlier values to the 1st and 99th percentile values and standardization using the RobustScalar package from sklearn. Time-varying variables were aggregated into hourly time buckets using the median for repeated values.
+For each patient, we extracted 87 time-series features and 24 static features which included laboratory test results, vital signs, comorbidities, admission information and demographics. The MIMIC files used in our study are as follows: 
+```
+- patients.csv
+- admissions.csv
+- chartevents.csv
+- transfers.csv
+- diagnoses_icd.csv
+- d_icd_diagnoses.csv
+- d_items.csv
+- labevents.csv
+- inputevents.csv
+- outputevents.csv
+```
+The functions for extracting relevant features from each of the MIMIC files are given in the script **utils_data_extraction.py**. 
 
-The **data_splitter.py** script is used for splitting the data into train-validation-test (75:15:10), converting dataframes into tensors, 
+
+## Feature preprocessing
+The **data_splitter.py** script is used for splitting the data into train-validation-test (75:15:10), scaling variables and converting dataframes into tensors for input to the model. Feature pre-processing of time-series variables include clipping the outlier values to the 1st and 99th percentile values and standardization using the RobustScalar package from sklearn. 
 
 ### Model training and evaluation
 
