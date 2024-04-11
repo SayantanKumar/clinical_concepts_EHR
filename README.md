@@ -9,16 +9,22 @@ Explanations for ICU Mortality Prediction" [Paper](https://dl.acm.org/doi/pdf/10
 
 ## Domain-knowledge concepts and clinical outcome
 
-**Clinical outcome**: Our aim is to predict the risk(probability) of a patient’s death at each timestep within his/her stay in the ICU. At each timepoint within the patient’s ICU trajectory, the model predicts if the patient will die within the next 24 hours period. For example, if a patient stays within the ICU from t=0 to t=56 hours(death time) then the clinical outcome labels (ground truth) from t=0 to t=32 will be 0 (survival) and 1 (death) from t=32 onwards.
+**Clinical outcome**: Our aim is to predict the risk(probability) of a patient’s death at each timestep within his/her stay in the ICU. At each timepoint within the patient’s ICU trajectory, the model predicts if the patient will die within the next 24 hours period (**Figure 2 left**). For example, if a patient stays within the ICU from t=0 to t=56 hours(death time) then the clinical outcome labels (ground truth) from t=0 to t=32 will be 0 (survival) and 1 (death) from t=32 onwards (**Figure 3**).
 
-**Domain-knowledge concepts**: Our proposed framework uses [Sequential Organ Failure Assessment (SOFA)](https://en.wikipedia.org/wiki/SOFA_score) organ-failure risk scores as high-level clinical concepts to explain patient mortality in the ICU. The six concepts in our model correspond to the organ-failure risk scores for each of the six organ systems: respiratory, cardiovascular, neurological hepatic, hematologic (coagulation) and renal systems. SOFA organ scores vary between 0-4 with high scores indicating severe organ system conditions. 
+**Domain-knowledge concepts**: Our proposed framework uses [Sequential Organ Failure Assessment (SOFA)](https://en.wikipedia.org/wiki/SOFA_score) organ-failure risk scores as high-level clinical concepts to explain patient mortality in the ICU. The six concepts in our model correspond to the organ-failure risk scores for each of the six organ systems: 
+- respiratory
+- cardiovascular
+- neurological
+- hepatic
+- hematologic (coagulation)
+- renal systems.
 
-The SOFA organ scores satisfy the properties of clinical concepts since they are 
+SOFA organ-specific scores vary between 0-4 with high scores indicating severe organ system conditions. The SOFA organ scores satisfy the properties of clinical concepts since they are:
 - **expert-knowledge driven**: well-validated metric used by clinicians to understand ICU mortality
 - **intermediate knowledge**: each organ-failure score is an aggregated assessment of clinical features
 - **high-level**: easier for human cognition since we are moving one level up from feature-level to organ level.
 
-Similar to the final clinical outcome, the predicted explanations are also anticipated longitudinal predictions. At each timestep, the model predicts anticipated organ-failure risk scores (maximum score within the next 24 hour window)
+Similar to the final clinical outcome, the predicted explanations are also anticipated longitudinal predictions. At each timestep, the model predicts anticipated organ-failure risk scores (maximum score within the next 24 hour window) (**Figure 2 right**)
 
 ![concept](figures/ICU_temporal.png)
 
@@ -52,7 +58,9 @@ The **data_splitter.py** script is used for splitting the data into train-valida
 
 ## Model training and evaluation
 
-All components of our proposed architecture have been implemented in the **model.py** script, including the recurrent module with time-series module, concept and relevance network. The **train_evaluate.py** script has the complete training module and the evaluation functions for generating model performance (AUROC/AUPRC) and model explanations. 
+All components of our proposed architecture have been implemented in the **model.py** script, including the recurrent module with time-series module, concept and relevance network (**Figure 1**). 
+
+The **train_evaluate.py** script has the complete training module and the evaluation functions for generating model performance (AUROC/AUPRC) (**Table 1**) and model explanations at each timepoint (**Figure 3**). 
 
 ![alt-text-1](figures/performance_table.png)
 ![alt-text-2](figures/SOFA_explanation.png)
