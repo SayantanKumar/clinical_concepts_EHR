@@ -9,9 +9,13 @@ Explanations for ICU Mortality Prediction" [Paper](https://dl.acm.org/doi/pdf/10
 
 ## Domain-knowledge concepts and clinical outcome
 
-**Clinical outcome**: Our aim is to predict the risk(probability) of a patient’s death at each timestep within his/her stay in the ICU. At each timepoint within the patient’s ICU trajectory, the model predicts if the patient will die within the next 24 hours period (**Figure 2 left**). For example, if a patient stays within the ICU from t=0 to t=56 hours(death time) then the clinical outcome labels (ground truth) from t=0 to t=32 will be 0 (survival) and 1 (death) from t=32 onwards (**Figure 3**).
+### Clinical outcome
 
-**Domain-knowledge concepts**: Our proposed framework uses [Sequential Organ Failure Assessment (SOFA)](https://en.wikipedia.org/wiki/SOFA_score) organ-failure risk scores as high-level clinical concepts to explain patient mortality in the ICU. The six concepts in our model correspond to the organ-failure risk scores for each of the six organ systems: 
+Our aim is to predict the risk(probability) of a patient’s death at each timestep within his/her stay in the ICU. At each timepoint within the patient’s ICU trajectory, the model predicts if the patient will die within the next 24 hours period (**Figure 2 left**). For example, if a patient stays within the ICU from t=0 to t=56 hours(death time) then the clinical outcome labels (ground truth) from t=0 to t=32 will be 0 (survival) and 1 (death) from t=32 onwards (**Figure 3**).
+
+### Domain-knowledge concepts
+
+Our proposed framework uses [Sequential Organ Failure Assessment (SOFA)](https://en.wikipedia.org/wiki/SOFA_score) organ-failure risk scores as high-level clinical concepts to explain patient mortality in the ICU. The six concepts in our model correspond to the **organ-failure risk scores** for each of the six organ systems: 
 - respiratory
 - cardiovascular
 - neurological
@@ -28,8 +32,10 @@ Similar to the final clinical outcome, the predicted explanations are also antic
 
 ![concept](figures/ICU_temporal.png)
 
+# Implementation details
+
 ## Environment
-- We recommend an evironment with python >= 3.7 and pytorch >= 1.10.2, and then install the following dependencies:
+- We recommend an environment with python >= 3.7 and pytorch >= 1.10.2, and then install the following dependencies:
 ```
 pip install -r requirements.txt
 ```
