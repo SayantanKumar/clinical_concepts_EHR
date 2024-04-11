@@ -6,9 +6,9 @@ Explanations for ICU Mortality Prediction" [Paper](https://dl.acm.org/doi/pdf/10
 
 <!---![alt-text-1](figures/performance_table.png) ![alt-text-2](figures/SOFA_explanation.png)---!>
 
-<p>
-  <img src="/figures/performance_table.png" width="50" />
-  <img src="/figures/SOFA_explanation.png" width="50" /> 
+</p>
+  <img src="/figures/performance_table.png" width="100" />
+  <img src="/figures/SOFA_explanation.png" width="100" /> 
 </p>
 
 **Abstract.** The black-box nature of complex deep learning models makes it challenging to explain the rationale behind model predictions to clinicians and healthcare providers. Most of the current explanation methods in healthcare provide expla- nations through feature importance scores, which identify clinical features that are important for prediction. For high-dimensional clinical data, using individual input features as units of explanations often leads to noisy explanations that are sensitive to input perturbations and less informative for clinical interpreta- tion. In this work, we design a novel deep learning framework that predicts domain-knowledge driven intermediate high-level clinical concepts from input features and uses them as units of explanation. Our framework is self-explaining; relevance scores are generated for each concept to predict and explain in an end-to-end joint training scheme. We perform systematic experiments on a real-world electronic health records dataset to evaluate both the performance and explainability of the predicted clinical concepts.
