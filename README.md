@@ -6,7 +6,7 @@ Explanations for ICU Mortality Prediction" [Paper](https://dl.acm.org/doi/pdf/10
 
 <!---![alt-text-1](figures/performance_table.png) ![alt-text-2](figures/SOFA_explanation.png)---!>
 
-<p float="left">
+<p>
   <img src="/figures/performance_table.png" width="50" />
   <img src="/figures/SOFA_explanation.png" width="50" /> 
 </p>
