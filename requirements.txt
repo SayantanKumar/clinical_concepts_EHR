@@ -1,0 +1,12 @@
+pandas
+os
+matplotlib
+numpy
+xgboost
+math
+shap
+sklearn
+seaborn
+i2bmi
+torch==1.10.2
+torchvision
