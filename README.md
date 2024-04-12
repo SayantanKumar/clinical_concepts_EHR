@@ -31,7 +31,7 @@ SOFA organ-specific scores vary between 0-4 with high scores indicating severe o
 
 Similar to the final clinical outcome, the predicted explanations are also anticipated longitudinal predictions. At each timestep, the model predicts anticipated organ-failure risk scores (maximum score within the next 24 hour window) (**Figure 2 right**)
 
-![concept](figures/ICU_temporal.png)
+<img align="center" width="65%" height="80%" src="figures/ICU_temporal.png"> 
 
 # Implementation details
 
@@ -69,7 +69,7 @@ All components of our proposed architecture have been implemented in the **model
 
 The **train_evaluate.py** script has the complete training module and the evaluation functions for generating model performance (AUROC/AUPRC) (**Table 1**) and model explanations at each timepoint (**Figure 3**). 
 
-<img width="45%" height="100%" src="figures/performance_table.png"> <img width="45%" height="100%" src="figures/SOFA_explanation.png">
+<img width="65%" height="80%" src="figures/performance_table.png"> <img width="65%" height="80%" src="figures/SOFA_explanation.png">
 
 
 ## Citation
