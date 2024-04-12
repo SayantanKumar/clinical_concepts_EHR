@@ -70,8 +70,9 @@ All components of our proposed architecture have been implemented in the **model
 
 The **train_evaluate.py** script has the complete training module and the evaluation functions for generating model performance (AUROC/AUPRC) (**Table 1**) and model explanations at each timepoint (**Figure 3**). 
 
-![alt-text-1](figures/performance_table.png)
-![alt-text-2](figures/SOFA_explanation.png)
+<img width="50%" height="50%" src="figures/performance_table.png">
+<img width="50%" height="50%" src="figures/SOFA_explanation.png">
+
 
 ## Citation
 If you find our work is useful in your research, please consider raising a star  :star:  and citing:
