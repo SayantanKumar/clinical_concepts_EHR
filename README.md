@@ -1,6 +1,5 @@
 # Overview
-This repository contains official implementation for our paper titled "Self-explaining Neural Network with Concept-based
-Explanations for ICU Mortality Prediction" [Paper](https://dl.acm.org/doi/pdf/10.1145/3535508.3545547) and our NeurIPS 2023 Workshop paper "Explaining Longitudinal Clinical Outcomes using Domain-Knowledge driven Intermediate Concepts" [Paper](https://openreview.net/forum?id=hpuOA3nkVW)
+This repository contains official implementation for our [[Paper](https://dl.acm.org/doi/pdf/10.1145/3535508.3545547)] titled "Self-explaining Neural Network with Concept-based Explanations for ICU Mortality Prediction" and our NeurIPS 2023 Workshop paper "Explaining Longitudinal Clinical Outcomes using Domain-Knowledge driven Intermediate Concepts" [Paper](https://openreview.net/forum?id=hpuOA3nkVW)
 
 <img align="center" width="65%" height="80%" src="figures/workflow.png"> 
 
